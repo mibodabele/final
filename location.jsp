@@ -1,50 +1,48 @@
-<%@ page contentType="text/html; charset=UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core
-"   
+<%@ page import = "num.NumberGuessBean" %>
 
-         prefix="c" %>
-<%@ taglib uri="/functions" prefix="f" %>
+<jsp:useBean id="numguess" class="num.NumberGuessBean" scope="session"/>
+<jsp:setProperty name="numguess" property="*"/>
+
 <html>
-<head><title>Localized Dates</title></head>
+<head><title>Number Guess</title></head>
 <body bgcolor="white">
-<jsp:useBean id="locales" scope="application"
-    class="mypkg.MyLocales"/>
+<font size=4>
 
-<form name="localeForm" action="index.jsp" method="post">
-<c:set var="selectedLocaleString" value="${param.locale}" />
-<c:set var="selectedFlag"
-     value="${!empty selectedLocaleString}" />
-<b>Locale:</b>
-<select name=locale>
-<c:forEach var="localeString" items="${locales.localeNames}" >
-<c:choose>
-    <c:when test="${selectedFlag}">
-        <c:choose>
-            <c:when
-                 test="${f:equals(selectedLocaleString, localeString)}" >
-                <option selected>${localeString}</option>
-            </c:when>
-            <c:otherwise>
-                <option>${localeString}</option>
-            </c:otherwise>
-        </c:choose>
-    </c:when>
-    <c:otherwise>
-        <option>${localeString}</option>
-    </c:otherwise>
-</c:choose>
-</c:forEach>
-</select>
-<input type="submit" name="Submit" value="Get Date">
+<% if (numguess.getSuccess()) { %>
+
+Congratulations! You got it.
+And after just <%= numguess.getNumGuesses() %> tries.<p>
+
+<% numguess.reset(); %>
+
+Care to <a href="numguess.jsp">try again</a>?
+
+<% } else if (numguess.getNumGuesses() == 0) { %>
+
+Welcome to the Number Guess game.<p>
+
+I'm thinking of a number between 1 and 100.<p>
+
+<form method=get>
+What's your guess? <input type=text name=guess>
+<input type=submit value="Submit">
 </form>
 
-<c:if test="${selectedFlag}" >
-    <jsp:setProperty name="locales"
-        property="selectedLocaleString"
-        value="${selectedLocaleString}" />
-    <jsp:useBean id="date" class="mypkg.MyDate"/>
-    <jsp:setProperty name="date" property="locale"
-        value="${locales.selectedLocale}"/>
-    <b>Date: </b>${date.date}</c:if>
+<% } else { %>
+
+Good guess, but nope. Try <b><%= numguess.getHint() %></b>.
+
+You have made <%= numguess.getNumGuesses() %> guesses.<p>
+
+I'm thinking of a number between 1 and 100.<p>
+
+<form method=get>
+What's your guess? <input type=text name=guess>
+<input type=submit value="Submit">
+</form>
+
+<% } %>
+
+</font>
 </body>
 </html>
