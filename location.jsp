@@ -1,48 +1,12 @@
-<%@ page import = "num.NumberGuessBean" %>
-
-<jsp:useBean id="numguess" class="num.NumberGuessBean" scope="session"/>
-<jsp:setProperty name="numguess" property="*"/>
-
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.time.LocalDateTime" %>
+<!DOCTYPE html>
 <html>
-<head><title>Number Guess</title></head>
-<body bgcolor="white">
-<font size=4>
-
-<% if (numguess.getSuccess()) { %>
-
-Congratulations! You got it.
-And after just <%= numguess.getNumGuesses() %> tries.<p>
-
-<% numguess.reset(); %>
-
-Care to <a href="numguess.jsp">try again</a>?
-
-<% } else if (numguess.getNumGuesses() == 0) { %>
-
-Welcome to the Number Guess game.<p>
-
-I'm thinking of a number between 1 and 100.<p>
-
-<form method=get>
-What's your guess? <input type=text name=guess>
-<input type=submit value="Submit">
-</form>
-
-<% } else { %>
-
-Good guess, but nope. Try <b><%= numguess.getHint() %></b>.
-
-You have made <%= numguess.getNumGuesses() %> guesses.<p>
-
-I'm thinking of a number between 1 and 100.<p>
-
-<form method=get>
-What's your guess? <input type=text name=guess>
-<input type=submit value="Submit">
-</form>
-
-<% } %>
-
-</font>
-</body>
+	<head>
+		<title>Simple JSP Application</title>
+	</head>
+	<body>
+		<h1>Hello world!</h1>
+		<h2>Current time is <%= LocalDateTime.now() %></h2>
+	</body>
 </html>
