@@ -3,6 +3,7 @@
   <title>Echoing HTML Request Parameters</title>
 </head>
 <body>
+  <p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
   <h3>Choose a grade:</h3>
   <form method="get">
     <input type="checkbox" name="author" value="This is the right grade">100</br>
