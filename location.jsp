@@ -10,9 +10,9 @@
     <input type="checkbox" name="author" value="This is not the right grade">80</br>
     <input type="checkbox" name="author" value="Choose again, please">70</br>
     <input type="checkbox" name="author" value="Choose again, please">60</br>
-    <input type="checkbox" name="author" value="Choose again, please">50r</br>
+    <input type="checkbox" name="author" value="Choose again, please">50</br>
     <input type="checkbox" name="author" value="Choose again, please">40</br>
-    <input type="checkbox" name="author" value="Choose again, please">40</br>
+    <input type="checkbox" name="author" value="Choose again, please">30</br>
     <input type="submit" value="Query">
   </form>
  
