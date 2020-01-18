@@ -1,58 +1,33 @@
 <html>
 <head>
-  <title>Order Book</title>
+  <title>Echoing HTML Request Parameters</title>
 </head>
- 
 <body>
-  <h1>Another E-Bookstore</h1>
-  <h2>Thank you for ordering...</h2>
+  <h3>Choose an author:</h3>
+  <form method="get">
+    <input type="checkbox" name="author" value="Tan Ah Teck">Tan
+    <input type="checkbox" name="author" value="Mohd Ali">Ali
+    <input type="checkbox" name="author" value="Kumar">Kumar
+    <input type="submit" value="Query">
+  </form>
  
   <%
-    String[] ids = request.getParameterValues("id");
-    if (ids != null) {
+  String[] authors = request.getParameterValues("author");
+  if (authors != null) {
   %>
-  <%@ page import = "java.sql.*" %>
+    <h3>You have selected author(s):</h3>
+    <ul>
   <%
-      Connection conn = DriverManager.getConnection(
-          "jdbc:mysql://localhost:8888/ebookshop", "myuser", "xxxx"); // <== Check!
-      // Connection conn =
-      //    DriverManager.getConnection("jdbc:odbc:eshopODBC");  // Access
-      Statement stmt = conn.createStatement();
-      String sqlStr;
-      int recordUpdated;
-      ResultSet rset;
+      for (int i = 0; i < authors.length; ++i) {
   %>
-      <table border=1 cellpadding=3 cellspacing=0>
-        <tr>
-          <th>Author</th>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Qty In Stock</th>
-        </tr>
+        <li><%= authors[i] %></li>
   <%
-      for (int i = 0; i < ids.length; ++i) {
-        // Subtract the QtyAvailable by one
-        sqlStr = "UPDATE books SET qty = qty - 1 WHERE id = " + ids[i];
-        recordUpdated = stmt.executeUpdate(sqlStr);
-        // carry out a query to confirm
-        sqlStr = "SELECT * FROM books WHERE id =" + ids[i];
-        rset = stmt.executeQuery(sqlStr);
-        while (rset.next()) {
-  %>
-          <tr>
-            <td><%= rset.getString("author") %></td>
-            <td><%= rset.getString("title") %></td>
-            <td>$<%= rset.getInt("price") %></td>
-            <td><%= rset.getInt("qty") %></td>
-          </tr>
-  <%    }
-        rset.close();
       }
-      stmt.close();
-      conn.close();
-    }
   %>
-  </table>
-  <a href="query.jsp"><h3>BACK</h3></a>
+    </ul>
+    <a href="<%= request.getRequestURI() %>">BACK</a>
+  <%
+  }
+  %>
 </body>
 </html>
