@@ -5,14 +5,14 @@
 <body>
   <h3>Choose a grade:</h3>
   <form method="get">
-    <input type="checkbox" name="author" value="100">Tan</br>
-    <input type="checkbox" name="author" value="90">Ali</br>
-    <input type="checkbox" name="author" value="80">Kumar</br>
-    <input type="checkbox" name="author" value="70">Kumar</br>
-    <input type="checkbox" name="author" value="60">Kumar</br>
-    <input type="checkbox" name="author" value="50">Kumar</br>
-    <input type="checkbox" name="author" value="40">Kumar</br>
-    <input type="checkbox" name="author" value="30">Kumar</br>
+    <input type="checkbox" name="author" value="This is the right grade">100</br>
+    <input type="checkbox" name="author" value="Well ...">90</br>
+    <input type="checkbox" name="author" value="This is not the right grade">80</br>
+    <input type="checkbox" name="author" value="Choose again, please">70</br>
+    <input type="checkbox" name="author" value="Choose again, please">60</br>
+    <input type="checkbox" name="author" value="Choose again, please">50r</br>
+    <input type="checkbox" name="author" value="Choose again, please">40</br>
+    <input type="checkbox" name="author" value="Choose again, please">40</br>
     <input type="submit" value="Query">
   </form>
  
