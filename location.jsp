@@ -12,7 +12,7 @@
          out.println("Your IP address is " + request.getRemoteAddr());
       %>
 		<p>Today's date: <%= (new java.util.Date()).toLocaleString()%></p>
-		      <% 
+		     
          switch(day) {
             case 0:
                out.println("It\'s Sunday.");
@@ -35,6 +35,6 @@
             default:
                out.println("It's Saturday.");
          }
-      %>
+     
 	</body>
 </html>
