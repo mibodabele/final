@@ -8,5 +8,8 @@
 	<body>
 		<h1>Hello world!</h1>
 		<h2>Current time is <%= LocalDateTime.now() %></h2>
+		      <%
+         out.println("Your IP address is " + request.getRemoteAddr());
+      %>
 	</body>
 </html>
