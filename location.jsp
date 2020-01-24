@@ -14,7 +14,7 @@
     <input type="checkbox" name="author" value="Choose again, please">50</br>
     <input type="checkbox" name="author" value="Choose again, please">40</br>
     <input type="checkbox" name="author" value="Choose again, please">30</br>
-    <input type="submit" value="Query">
+    <input type="submit" value="Submit">
   </form>
  
   <%
