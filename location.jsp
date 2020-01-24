@@ -7,7 +7,7 @@
   <h3>Choose a grade:</h3>
   <form method="get">
     <input type="checkbox" name="author" value="This is the right grade">100</br>
-    <input type="checkbox" name="author" value="Well ... !!">90</br>
+    <input type="checkbox" name="author" value="Well ...    !!">90</br>
     <input type="checkbox" name="author" value="This is not the right grade">80</br>
     <input type="checkbox" name="author" value="Choose again, please">70</br>
     <input type="checkbox" name="author" value="Choose again, please">60</br>
